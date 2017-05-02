@@ -1,0 +1,1 @@
+docker run -itd --name=MySQL-Cluster-Slave2 -e MySQL_Role=Slave2 -e MYSQL_ROOT_PASSWORD=password -e REPLICATION_USER=repluser -e REPLICATION_PASSWORD=88888888 -e MasterIP=172.20.10.10 -e Slave1IP=172.20.10.11 -e Slave2IP=172.20.10.12 -e MySQLPort=3307 -p 3307:3306 -v /var/lib/mysql:/var/lib/mysql alanpeng/mysql5.7-replication-docker

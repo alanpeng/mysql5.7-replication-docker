@@ -1,0 +1,19 @@
+[mysqld]
+explicit_defaults_for_timestamp = true
+log-bin = mysql-bin
+relay-log = relay-log
+binlog_format = ROW
+server-id = 1
+gtid-mode = on
+log_slave_updates = on
+enforce-gtid-consistency = true
+master-info-repository = TABLE
+relay-log-info-repository = TABLE
+sync-master-info = 1
+slave-parallel-workers = 2
+binlog-checksum = CRC32
+master-verify-checksum = 1
+slave-sql-verify-checksum = 1
+binlog-rows-query-log_events = 1
+report-port = {{MySQLPort}}
+report-host = {{MasterIP}}

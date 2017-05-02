@@ -1,0 +1,17 @@
+MasterNode:
+  environment:
+    MySQL_Role: Master
+    MYSQL_ROOT_PASSWORD: password
+    REPLICATION_USER: repluser
+    REPLICATION_PASSWORD: '88888888'
+    MasterIP: 172.20.10.10
+    Slave1IP: 172.20.10.11
+    Slave2IP: 172.20.10.12
+    MySQLPort: 3307
+  tty: true
+  image: alanpeng/mysql5.7-replication-docker
+  ports:
+   - 3307:3306/tcp
+  volumes:
+  - /var/lib/mysql:/var/lib/mysql
+  stdin_open: true
