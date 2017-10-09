@@ -5,7 +5,7 @@ USER_EXISTS=$($MySQLCommand -BN -e 'select user from mysql.user where user="$REP
 if [ -z "$USER_EXISTS" ] && [ "$MySQL_Role" = 'Master' ]
 then
     $MySQLCommand -ve 'create user '\'$REPLICATION_USER\''@'\'%\'' identified by '\'$REPLICATION_PASSWORD\'''
-    $MySQLCommand -ve 'grant replication slave, replication client on *.* to '\'$REPLICATION_USER\''@'\'%\'''
+    $MySQLCommand -ve 'grant all on *.* to '\'$REPLICATION_USER\''@'\'%\'''
     $MySQLCommand -ve 'FLUSH PRIVILEGES'
 fi
 
